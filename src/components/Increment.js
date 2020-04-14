@@ -1,72 +1,62 @@
 import React, { Component } from 'react';
-
+import "../App.css"
+import styled from 'styled-components';
 
 class Increment extends Component {
     state ={
         count: 0,
     }
             addIncrement = () => {
-                this.setState({
-                    count: this.state.count + 1,
-                })
+                this.setState({count: this.state.count + 1,})
             } 
             
             addDecrement = () => {
-            if(this.count < 0) {
-            this.setState({
-                    count: this.state.count - 1,
-                })
-            } else {
-                window.alert('Angka tidak bisa minus')
-            }
-        }
-            addReset = () => {
-                this.setState({
-                    count: this.state.count = 0,
-                })
+            this.setState({count: this.state.count -1,})
+            if( this.state.count <= 0){
+                this.setState({count : this.state.count})
+                window.alert("Tidak bisa min");
+            }}
+            
+            addReset = () => {this.setState({count: this.state.count = 0,})
             } 
 
             render (){
+                
+                const Button = styled.button`
+                background-color: #38ACEC;
+                border-color: #38ACEC;
+                margin-bottom: 1em;
+                padding: 10px 40px 10px 40px;
+                text-align:center;
+                color: white;
+                font-size:26px;
+                
+                `
+                const Input = styled.input`
+                text-align:center;
+                justify-content:space-between;
+                height :2em;
+                width: 20em;
+                margin-left:1em;
+                margin-right: 1em;
+                font-size: 16px;
+                padding: 10px 0px 10px 0px;
+                
+                `
+
             return(
-                <>
+                
                 <div>
-                    <button style={buttonstyle} onClick={this.addIncrement} >+</button>
-                    <input style={labelstyle} value={this.state.count} />
-                    <button style={buttonstyle} onClick={this.addDecrement}>-</button>
+                    <Button onClick={() =>this.addIncrement()}>+</Button>
+                    <Input  value={this.state.count}/>
+                    <Button  onClick={() => this.addDecrement()}>-</Button>
+                    <br/>
+                    <Button onClick={() => this.addReset()}>Reset</Button>
                 </div>
-                 <div>
-                    <button onClick={this.addReset} style={buttonstylereset}>Reset</button>
-                </div>
-                </>
+                
                 )
             };   
 }
 
 export default Increment;
 
-const buttonstyle = {
-    backgroundColor: "palevioletred",
-    width:"70px",
-    borderColor: "palevioletred",
-    marginLeft: "10px",
-    marginRight: "10px",
-    color : "white",
-}
-
-const labelstyle = {
-    color: "black",
-    borderColor: "#FFB6C1",
-    borderStyle: "solid",
-    width : "50px",
-    paddingRight: "20px",
-    paddingLeft:"60px",
-    
-}
-
-const buttonstylereset = {
-    width : "130px",
-    backgroundColor: "palevioletred",
-    borderColor: "palevioletred",
-    marginTop: "5px",
-    color: "white",
-}
