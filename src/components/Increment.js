@@ -49,7 +49,8 @@ const buttonstyle = {
     width:"70px",
     borderColor: "palevioletred",
     marginLeft: "10px",
-    marginRight: "10px"
+    marginRight: "10px",
+    color : "white",
 }
 
 const labelstyle = {
@@ -58,12 +59,14 @@ const labelstyle = {
     borderStyle: "solid",
     width : "50px",
     paddingRight: "20px",
-    paddingLeft:"60px"
+    paddingLeft:"60px",
+    
 }
 
 const buttonstylereset = {
     width : "130px",
     backgroundColor: "palevioletred",
     borderColor: "palevioletred",
-    marginTop: "5px"
+    marginTop: "5px",
+    color: "white",
 }
